@@ -20,7 +20,9 @@ public class OwnerController {
     @RequestMapping("test")
     public String ownerTest() {
         ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
+
         return cfg.hostname() + " - " + cfg.port() + "\n" + " - " + cfg.prop1() + "\n" + cfg.prop2();
+
     }
 
     @RequestMapping("from/prop")
@@ -58,5 +60,18 @@ public class OwnerController {
     public String typeCast(){
         TypeCastingCOnfig typeCastingCOnfig = ConfigFactory.create(TypeCastingCOnfig.class);
         return typeCastingCOnfig.fibonacci().toString();
+    }
+
+    @RequestMapping("reload")
+    public String reload(){
+        ReloadableConfig reloadableConfig = ConfigFactory.create(ReloadableConfig.class);
+        reloadableConfig.reload();;
+        return reloadableConfig.prop1();
+    }
+
+    @RequestMapping("autoreload")
+    public String autoReload(){
+        AutoReloadConfig reloadableConfig = ConfigFactory.create(AutoReloadConfig.class);
+        return reloadableConfig.port();
     }
 }
