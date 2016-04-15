@@ -9,7 +9,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources("classpath:ServerConfig.properties")
 public interface AutoReloadConfig extends Config{
 
-    
+
     @DefaultValue("989")
     String port();
 }

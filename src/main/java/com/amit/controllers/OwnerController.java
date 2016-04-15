@@ -32,6 +32,7 @@ public class OwnerController {
         props.setProperty("foo", "pineapple");
         props.setProperty("bar", "lime");
         PlainServerConfig serverConfig = ConfigFactory.create(PlainServerConfig.class, props);
+        
         return serverConfig.bar();
 
     }
