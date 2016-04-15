@@ -1,9 +1,8 @@
 package com.amit.controllers;
 
-import com.amit.owner.PlainServerConfig;
-import com.amit.owner.ServerConfig;
-import com.amit.owner.SystemEnvProperties;
+import com.amit.owner.*;
 import org.aeonbits.owner.ConfigFactory;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,4 +41,22 @@ public class OwnerController {
         return cfg.javaHome() + "  --  " + cfg.user();
     }
 
+    @RequestMapping("paramprop/{name}")
+    public String parameterizedConfig(@PathVariable String name){
+        ParameterizedConfig config = ConfigFactory.create(ParameterizedConfig.class);
+        return config.helloMr(name);
+    }
+
+
+    @RequestMapping("paramprop/dis/{name}")
+    public String parameterizedConfigDisabled(@PathVariable String name){
+        ParameterizedConfig config = ConfigFactory.create(ParameterizedConfig.class);
+        return config.helloMrDisabled(name);
+    }
+
+    @RequestMapping("typecast")
+    public String typeCast(){
+        TypeCastingCOnfig typeCastingCOnfig = ConfigFactory.create(TypeCastingCOnfig.class);
+        return typeCastingCOnfig.fibonacci().toString();
+    }
 }
