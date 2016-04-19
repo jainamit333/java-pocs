@@ -32,4 +32,29 @@ public class MetricController {
     public String invokeMeterWithName2(){
         return annotationConsumer.fooWithName2();
     }
+
+
+    @RequestMapping("meter/innermethod")
+    public String invokeInnerMethod(){
+        return annotationConsumer.callFoo();
+
+    }
+
+    @RequestMapping("gauge")
+    public String addValueToQueue(){
+        annotationConsumer.addValueToQueue();
+        return "done";
+    }
+
+    @RequestMapping("timer")
+    public Integer getTimer(){
+        return annotationConsumer.getTimed();
+
+    }
+
+    @RequestMapping("meter/innerprivatemethod")
+    public String invokeInnerPrivateMethod(){
+        return annotationConsumer.callPrivateBoo();
+    }
+
 }

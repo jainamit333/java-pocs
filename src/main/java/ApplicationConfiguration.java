@@ -1,5 +1,9 @@
 import com.codahale.metrics.ConsoleReporter;
+import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.graphite.Graphite;
+import com.codahale.metrics.graphite.GraphiteReporter;
+import com.librato.metrics.LibratoReporter;
 import com.ryantenney.metrics.spring.config.annotation.EnableMetrics;
 import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 import org.hibernate.ejb.HibernatePersistence;
@@ -22,6 +26,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.net.InetSocketAddress;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -102,14 +107,41 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
         return transactionManager;
     }
 
+
     @Override
-    public void configureReporters(MetricRegistry metricRegistry) {
-        registerReporter(ConsoleReporter
-                .forRegistry(metricRegistry)
-                .build())
-                .start(1, TimeUnit.MINUTES);
+    public MetricRegistry getMetricRegistry() {
+        MetricRegistry registry = new MetricRegistry();
+        return registry;
 
     }
+
+    @Override
+    public void configureReporters(MetricRegistry metricRegistry) {
+
+        Graphite graphite = new Graphite(new InetSocketAddress("127.0.0.1", 2003));
+
+        GraphiteReporter reporter = GraphiteReporter.forRegistry(metricRegistry)
+                .prefixedWith("server1")
+                .convertRatesTo(TimeUnit.SECONDS)
+                .convertDurationsTo(TimeUnit.MILLISECONDS)
+                .filter(MetricFilter.ALL)
+                .build(graphite);
+        registerReporter(reporter).start(1, TimeUnit.SECONDS);
+
+//
+////        ConsoleReporter reporter =  ConsoleReporter
+//                .forRegistry(metricRegistry)
+//                .build();
+//
+        LibratoReporter.enable(
+                LibratoReporter.builder(
+                        metricRegistry,
+                        "jainamit333@gmail.com",
+                        "66be71a4d1c8d65e8e2ce193caf387c2f29ba2d04d5740817f4ea38e802c8a2c",
+                        "http://localhost:9494/"), 10, TimeUnit.SECONDS);
+
+    }
+
 
 }
 

@@ -1,6 +1,7 @@
 package com.amit.metric;
 
 import com.codahale.metrics.*;
+import com.codahale.metrics.servlets.AdminServlet;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -23,6 +24,7 @@ public class GetStarted {
 
 
         startReport();
+       // startJmxReport();
         Meter requests = metrics.meter("requests");
         Meter response = metrics.meter("response");
         Counter pendingJobs = metrics.counter("custom counter");
@@ -43,8 +45,26 @@ public class GetStarted {
         histogram.update(12);
         histogram.update(1222);
 
+        wait5Seconds();
 
-        
+
+        Timer.Context context = timer.time();
+        try {
+            wait5Seconds();
+            wait5Seconds();
+
+        }finally {
+            context.stop();
+        }
+
+        try {
+            wait5Seconds();
+            wait5Seconds();
+            wait5Seconds();
+
+        }finally {
+            context.stop();
+        }
 
 //
 //
@@ -63,6 +83,12 @@ public class GetStarted {
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
                 .build();
         reporter.start(1, TimeUnit.SECONDS);
+    }
+
+
+    static void  startJmxReport(){
+        final JmxReporter reporter = JmxReporter.forRegistry(metrics).build();
+        reporter.start();
     }
 
     static void wait5Seconds() {
