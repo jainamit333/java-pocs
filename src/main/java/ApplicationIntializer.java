@@ -1,3 +1,4 @@
+import org.springframework.core.annotation.Order;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -11,7 +12,7 @@ import javax.servlet.ServletRegistration;
  * Created by amit on 14/4/16.
  */
 
-
+@Order(value = 0)
 public class ApplicationIntializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer{
 
     public void onStartup(ServletContext container) throws ServletException {
