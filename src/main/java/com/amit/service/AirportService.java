@@ -1,6 +1,7 @@
 package com.amit.service;
 
-import com.amit.entity.AirportEntity;
+
+import com.amit.entity.AirportMetaDataEntity;
 import com.amit.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Controller;
 
 public interface AirportService {
 
-     AirportEntity getAirportById(Long id);
+     AirportMetaDataEntity getAirportById(Long id);
 
-     void addNewAirport(AirportEntity airportEntity);
+     AirportMetaDataEntity getAirportByCode(String s);
+
+     void addNewAirport(AirportMetaDataEntity airportEntity);
 
 
 

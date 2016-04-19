@@ -1,6 +1,7 @@
 package com.amit.impl;
 
-import com.amit.entity.AirportEntity;
+
+import com.amit.entity.AirportMetaDataEntity;
 import com.amit.repositories.AirportRepository;
 import com.amit.service.AirportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,15 @@ public class AirportImpl implements AirportService {
     @Autowired
     private AirportRepository airportRepository;
 
-    public AirportEntity getAirportById(Long id) {
+    public AirportMetaDataEntity getAirportById(Long id) {
         return airportRepository.findById(id);
     }
 
-    public void addNewAirport(AirportEntity airportEntity){
+    public AirportMetaDataEntity getAirportByCode(String s) {
+        return airportRepository.findByIataCode(s);
+    }
+
+    public void addNewAirport(AirportMetaDataEntity airportEntity){
         airportRepository.save(airportEntity);
     }
 }

@@ -1,6 +1,7 @@
 package com.amit.controllers;
 
-import com.amit.entity.AirportEntity;
+
+import com.amit.entity.AirportMetaDataEntity;
 import com.amit.service.AirportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,19 +24,15 @@ public class DataBaseController {
     }
 
     @RequestMapping("get/{id}")
-    public AirportEntity getById(@PathVariable Long id){
+    public AirportMetaDataEntity getById(@PathVariable Long id){
         return airportService.getAirportById(id);
     }
 
-
-    @RequestMapping(value = "add/{code}/{country}/{name}",method = RequestMethod.GET,produces={"application/json"})
-    public AirportEntity add(@PathVariable String code,@PathVariable String country,@PathVariable String name){
-        AirportEntity airportEntity = new AirportEntity();
-        airportEntity.setCode(code);
-        airportEntity.setCountry(country);
-        airportEntity.setName(name);
-        airportService.addNewAirport(airportEntity);
-        return airportEntity;
-
+    @RequestMapping("get/code/{id}")
+    @ResponseBody
+    public AirportMetaDataEntity getByCode(@PathVariable String id){
+        return airportService.getAirportByCode(id);
     }
+
+
 }
