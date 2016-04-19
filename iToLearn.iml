@@ -85,7 +85,6 @@
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-validation:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.web:javax.el:2.2.6" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:2.2.5" level="project" />
-    <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-core:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-ganglia:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: info.ganglia.gmetric4j:gmetric4j:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.acplt:oncrpc:1.0.7" level="project" />
@@ -97,10 +96,13 @@
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-json:3.1.2" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-jvm:3.1.2" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-graphite:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.librato.metrics:metrics-librato:4.1.2.5" level="project" />
-    <orderEntry type="library" name="Maven: com.librato.metrics:librato-java:1.0.13" level="project" />
+    <orderEntry type="library" name="Maven: com.librato.metrics:metrics-librato:4.0.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.librato.metrics:librato-java:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.7" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.7" level="project" />
+    <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-core:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.ning:async-http-client:1.7.4" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty:3.4.1.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:5.1.17" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.12.6" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" level="project" />

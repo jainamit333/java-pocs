@@ -138,7 +138,7 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
                         metricRegistry,
                         "jainamit333@gmail.com",
                         "66be71a4d1c8d65e8e2ce193caf387c2f29ba2d04d5740817f4ea38e802c8a2c",
-                        "http://localhost:9494/"), 10, TimeUnit.SECONDS);
+                        "localhost"), 10, TimeUnit.SECONDS);
 
     }
 
