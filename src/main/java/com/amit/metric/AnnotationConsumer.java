@@ -1,5 +1,6 @@
 package com.amit.metric;
 
+import com.codahale.metrics.annotation.Counted;
 import com.codahale.metrics.annotation.Gauge;
 import com.codahale.metrics.annotation.Metered;
 import com.codahale.metrics.annotation.Timed;
@@ -12,7 +13,7 @@ import java.util.Queue;
  * Created by amit on 19/4/16.
  */
 
-@Component
+//@Component
 public class AnnotationConsumer {
 
     @Gauge
@@ -71,6 +72,13 @@ public class AnnotationConsumer {
     }
     public String callPrivateBoo(){
         return boo();
+    }
+
+
+
+    @Counted
+    public String counter(){
+        return "counter called";
     }
 
 }

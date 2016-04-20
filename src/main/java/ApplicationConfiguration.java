@@ -1,3 +1,5 @@
+import com.amit.aspect.CustomerBoImpl;
+import com.amit.aspect.LoggingAspect;
 import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
@@ -7,10 +9,7 @@ import com.librato.metrics.LibratoReporter;
 import com.ryantenney.metrics.spring.config.annotation.EnableMetrics;
 import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 import org.hibernate.ejb.HibernatePersistence;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
@@ -41,6 +40,7 @@ import java.util.concurrent.TimeUnit;
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("com.amit.repositories")
 //@EnableNeo4jRepositories("com.amit.neo.repositories")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableMetrics
 public class ApplicationConfiguration extends MetricsConfigurerAdapter {
 
@@ -57,6 +57,7 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
 
     @Resource
     private Environment environment;
+
 
     @Bean
     public ViewResolver viewResolver() {
@@ -129,17 +130,18 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
         registerReporter(reporter).start(1, TimeUnit.SECONDS);
 
 //
-////        ConsoleReporter reporter =  ConsoleReporter
+//        ConsoleReporter reporter =  ConsoleReporter
 //                .forRegistry(metricRegistry)
 //                .build();
 //
-        LibratoReporter.enable(
-                LibratoReporter.builder(
-                        metricRegistry,
-                        "jainamit333@gmail.com",
-                        "66be71a4d1c8d65e8e2ce193caf387c2f29ba2d04d5740817f4ea38e802c8a2c",
-                        "localhost"), 10, TimeUnit.SECONDS);
-
+//        registerReporter(reporter).start(5,TimeUnit.SECONDS);
+//        LibratoReporter.enable(
+//                LibratoReporter.builder(
+//                        metricRegistry,
+//                        "jainamit333@gmail.com",
+//                        "66be71a4d1c8d65e8e2ce193caf387c2f29ba2d04d5740817f4ea38e802c8a2c",
+//                        "localhost"), 10, TimeUnit.SECONDS);
+//
     }
 
 
