@@ -1,22 +1,19 @@
-import com.amit.aspect.CustomerBoImpl;
-import com.amit.aspect.LoggingAspect;
-import com.codahale.metrics.ConsoleReporter;
+import com.amit.metric.MetricRegisteryInstance;
 import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.graphite.Graphite;
 import com.codahale.metrics.graphite.GraphiteReporter;
-import com.librato.metrics.LibratoReporter;
 import com.ryantenney.metrics.spring.config.annotation.EnableMetrics;
 import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -57,6 +54,10 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
 
     @Resource
     private Environment environment;
+
+
+    @Autowired
+    MetricRegisteryInstance metricRegisteryInstance;
 
 
     @Bean
@@ -111,23 +112,25 @@ public class ApplicationConfiguration extends MetricsConfigurerAdapter {
 
     @Override
     public MetricRegistry getMetricRegistry() {
-        MetricRegistry registry = new MetricRegistry();
-        return registry;
+        return metricRegisteryInstance.getMetricRegistry();
 
     }
+
+
+
 
     @Override
     public void configureReporters(MetricRegistry metricRegistry) {
 
-        Graphite graphite = new Graphite(new InetSocketAddress("127.0.0.1", 2003));
-
-        GraphiteReporter reporter = GraphiteReporter.forRegistry(metricRegistry)
-                .prefixedWith("server1")
-                .convertRatesTo(TimeUnit.SECONDS)
-                .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .filter(MetricFilter.ALL)
-                .build(graphite);
-        registerReporter(reporter).start(1, TimeUnit.SECONDS);
+//        Graphite graphite = new Graphite(new InetSocketAddress("127.0.0.1", 2003));
+//
+//        GraphiteReporter reporter = GraphiteReporter.forRegistry(metricRegistry)
+//                .prefixedWith("server1")
+//                .convertRatesTo(TimeUnit.SECONDS)
+//                .convertDurationsTo(TimeUnit.MILLISECONDS)
+//                .filter(MetricFilter.ALL)
+//                .build(graphite);
+//        registerReporter(reporter).start(1, TimeUnit.SECONDS);
 
 //
 //        ConsoleReporter reporter =  ConsoleReporter

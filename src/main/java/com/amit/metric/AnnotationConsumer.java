@@ -13,7 +13,7 @@ import java.util.Queue;
  * Created by amit on 19/4/16.
  */
 
-//@Component
+@Component
 public class AnnotationConsumer {
 
     @Gauge

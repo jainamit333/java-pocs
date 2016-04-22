@@ -2,6 +2,7 @@ package com.amit.metric;
 
 import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.MetricRegistry;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -14,12 +15,14 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class MetricRegisteryInstance {
 
-    MetricRegistry metricRegistry;
+    //private  MetricRegistry metricRegistry;
+    @Autowired
+    MyMetricsServletContextListener myMetricsServletContextListener;
 
     @PostConstruct
     public void initMetricRegistry(){
-        metricRegistry = new MetricRegistry();
-        ConsoleReporter reporter = ConsoleReporter.forRegistry(metricRegistry)
+
+        ConsoleReporter reporter = ConsoleReporter.forRegistry(myMetricsServletContextListener.getMetricRegistry())
                 .convertRatesTo(TimeUnit.SECONDS)
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
                 .build();
@@ -29,7 +32,7 @@ public class MetricRegisteryInstance {
 
 
     public MetricRegistry getMetricRegistry(){
-        return  metricRegistry;
+        return  myMetricsServletContextListener.getMetricRegistry();
     }
 
 }

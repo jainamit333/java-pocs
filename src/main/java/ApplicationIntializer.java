@@ -1,3 +1,4 @@
+import com.codahale.metrics.servlets.AdminServlet;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -22,9 +23,14 @@ public class ApplicationIntializer extends AbstractAnnotationConfigDispatcherSer
         ctx.setServletContext(container);
 
         ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
+        ServletRegistration.Dynamic metricServletAdmin = container.addServlet("metrics",new AdminServlet());
+
 
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
+
+        metricServletAdmin.setLoadOnStartup(1);
+        metricServletAdmin.addMapping("/metrics/*");
     }
 
     @Override

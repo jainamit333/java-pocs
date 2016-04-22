@@ -23,6 +23,7 @@ public class LoggingAspect {
     public void logAfter(JoinPoint joinPoint) {
 
         Meter requests = metricRegistry.getMetricRegistry().meter(joinPoint.getSignature().toString());
+        requests.mark();
     }
 
 }
