@@ -16,7 +16,7 @@ import java.util.Queue;
 @Component
 public class AnnotationConsumer {
 
-    @Gauge
+   // @Gauge
     private Queue<Integer> simpleQueue = new LinkedList<Integer>();
 
 

@@ -22,11 +22,11 @@ public class MetricRegisteryInstance {
     @PostConstruct
     public void initMetricRegistry(){
 
-        ConsoleReporter reporter = ConsoleReporter.forRegistry(myMetricsServletContextListener.getMetricRegistry())
-                .convertRatesTo(TimeUnit.SECONDS)
-                .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .build();
-        reporter.start(1, TimeUnit.SECONDS);
+//        ConsoleReporter reporter = ConsoleReporter.forRegistry(myMetricsServletContextListener.getMetricRegistry())
+//                .convertRatesTo(TimeUnit.SECONDS)
+//                .convertDurationsTo(TimeUnit.MILLISECONDS)
+//                .build();
+//        reporter.start(1, TimeUnit.SECONDS);
 
     }
 

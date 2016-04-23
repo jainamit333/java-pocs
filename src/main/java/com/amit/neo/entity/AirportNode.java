@@ -7,8 +7,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 /**
  * Created by amit on 19/4/16.
  */
-//@NodeEntity
-@Data
+@NodeEntity
 public class AirportNode {
 
 
