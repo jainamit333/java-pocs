@@ -1,6 +1,7 @@
 package com.amit.controllers;
 
-import com.amit.kafka.KafkaTestViaConfig;
+
+import com.amit.kafka.KafkaHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,15 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("kafka")
-public class KafkaTestController {
+public class KafkaController {
 
-//
-//    @Autowired
-//    KafkaTestViaConfig kafkaTestViaCOnfig;
-//
-//    @RequestMapping("pass")
-//    public String test(){
-//        kafkaTestViaCOnfig.testKafka();
-//        return "test done";
-//    }
+    @Autowired
+    KafkaHandler kafkaHandler;
+
+
+    @RequestMapping("send")
+    public String senfDataToKafka(){
+
+        kafkaHandler.sendDataToKafka("Senf Dummy Data to kafka Docker");
+        return "done";
+    }
+
+
 }
