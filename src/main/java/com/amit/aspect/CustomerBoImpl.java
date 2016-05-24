@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * Created by amit on 20/4/16.
  */
 
-@Service
+@Component
 public class CustomerBoImpl implements CustomerBo {
 
     public void addCustomer(){

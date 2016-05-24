@@ -41,6 +41,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-websocket:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.2.5.RELEASE" level="project" />
@@ -82,9 +83,6 @@
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-validation:0.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.1.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.web:javax.el:2.2.6" level="project" />
     <orderEntry type="library" name="Maven: javax.el:javax.el-api:2.2.5" level="project" />
     <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-ganglia:3.0.2" level="project" />
@@ -118,7 +116,7 @@
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.15.0-GA" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.11" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.11" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.3" level="project" />
@@ -147,9 +145,16 @@
     <orderEntry type="library" name="Maven: com.goldmansachs:gs-collections:5.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.goldmansachs:gs-collections-api:5.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-java-dsl:1.1.0.M1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.8.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.9.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.1.7" level="project" />
     <orderEntry type="library" name="Maven: net.jpountz.lz4:lz4:1.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.1.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-couchbase:2.1.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.couchbase.client:java-client:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.couchbase.client:core-io:1.2.3" level="project" />
+    <orderEntry type="library" name="Maven: io.reactivex:rxjava:1.0.15" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.2.4.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.1.0" level="project" />
   </component>
   <component name="POM File Configuration" pomFile="" />
 </module>

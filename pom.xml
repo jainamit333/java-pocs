@@ -24,6 +24,12 @@
             <artifactId>spring-context</artifactId>
             <version>4.2.5.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
             <!--<artifactId>spring-aop</artifactId>-->
@@ -169,7 +175,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>4.2.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -215,6 +221,23 @@
         </dependency>
 
 
+            <!--couch base setup-->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-couchbase</artifactId>
+                <version>2.1.1.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>1.1.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>5.2.4.Final</version>
+            </dependency>
 
     </dependencies>
     <repositories>
@@ -261,6 +284,5 @@
             </plugin>
         </plugins>
         <finalName>iToLearnDummyProject</finalName>
-
     </build>
 </project>

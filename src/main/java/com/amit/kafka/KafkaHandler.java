@@ -17,7 +17,7 @@ public class KafkaHandler {
 
     public void sendDataToKafka(String s){
 
-    kafkaTemplate.convertAndSend("test","key1",s);
+        kafkaTemplate.convertAndSend("test","key1",s);
 
     }
 
